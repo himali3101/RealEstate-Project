@@ -1,5 +1,6 @@
 package com.cg.realestate.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +20,15 @@ public class ProfileService{
 	}
 	
 	public List<User> findAll(){
-		return dao.findAll();
+		 List<User> users = new ArrayList<>();
+		 dao.findAll().forEach(users::add);
+		 return users;
+		
 	}
 	
 	public User updateProfile(User updateUser) {
 	
-		User user = dao.findById(updateUser.getUserId());
+		User user = dao.findById(updateUser.getUserId()).get();
 	 
 		if( user == null) {
 	    	return null;
@@ -41,7 +45,7 @@ public class ProfileService{
 	    }
 	}
 	
-	public User findByEmailId(String emailId) {
-		return dao.findByEmailId(emailId);
-	}
+	/*public User findByEmailId(String emailId) {
+		return dao.findByEmailId(emailId)
+	}*/
 }

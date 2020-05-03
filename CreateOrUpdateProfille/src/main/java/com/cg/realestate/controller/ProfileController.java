@@ -46,9 +46,9 @@ public class ProfileController {
 		}	
 	}
 	
-	@GetMapping(path = "/login/{emailId}")
-	public User findByEmailId(@PathVariable String emailId) {
+	/*@GetMapping(path = "/login/{emailId}")
+	public User (@PathVariable String emailId) {
 		return service.findByEmailId(emailId);
 	}
-	
+	*/
 }
